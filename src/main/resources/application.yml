@@ -1,0 +1,44 @@
+server:
+  port: 8989
+spring:
+  application:
+    name: spring-doc-demo
+  devtools:
+    restart:
+      enabled: true
+  datasource:
+    url: jdbc:mysql://120.77.246.22:3306/dev_test?useUnicode=true&useSSL=false&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root
+    password: wmj18476723899
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      pool-name: spring-doc-demo
+      connection-timeout: 60000
+      maximum-pool-size: 20
+      max-lifetime: 1800000
+      keepalive-time: 1750000
+      connection-test-query: select 1
+  data:
+    redis:
+      host: 120.77.246.22
+      port: 6379
+      password: wmj18476723899
+      database: 0
+      timeout: 60000ms
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+      logic-delete-field: isDel
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+logging:
+  level:
+    com.baomidou.mybatisplus: debug
+    com.suqb.www: debug
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    path: /swagger-ui.html
